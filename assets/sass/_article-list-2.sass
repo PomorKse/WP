@@ -1,0 +1,65 @@
+.article-list-2
+  margin: 60px 0 60px
+  padding: 0
+  background-color: #ffffff
+  border-radius: 10px
+  &-thumb
+    object-fit: cover
+  &-title
+    margin: 15px 0 10px
+    font-family: Roboto Slab
+    font-weight: bold
+    font-size: 20px
+    line-height: 25px
+    color: #262D33
+  &-excerpt
+    margin-bottom: 20px
+    font-size: 14px
+    line-height: 20px
+    color: #4B5157
+  &-item
+    position: relative
+    padding: 25px
+    display: flex
+    align-items: center
+    &::after //не могу разобраться почему с :not вообще псевдоэлемент пропадает, без него работает
+      content: ''
+      position: absolute
+      width: 94%
+      height: 1px
+      background-color: #D9DADB
+      display: block
+      bottom: 0
+    &-wrapper
+      max-width: 430px
+      margin-left: 25px
+      position: relative
+      &::before
+        content: url(../img/bookmark.svg)
+        position: absolute
+        top: 0
+        right: 0
+      .category-name
+        font-weight: 900
+        font-size: 12px
+        line-height: 15px
+        text-transform: uppercase
+        letter-spacing: 0.5px
+    &-info
+      display: flex
+      align-items: center
+      font-size: 12px
+      line-height: 15px
+      color: #939699
+      .date, .comments, .likes
+              opacity: 0.4
+              display: flex
+              align-items: center
+              margin-right: 7px
+              &-counter
+                margin-left: 5px
+
+
+
+
+

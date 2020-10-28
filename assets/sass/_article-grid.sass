@@ -1,0 +1,223 @@
+.main-grid
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+.article
+ &-grid
+    margin: 30px 0 60px
+    padding: 0
+    list-style: none
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: minmax(min-content, max-content) minmax(200px, max-content) minmax(200px, max-content)
+    grid-gap: 30px
+    &-permalink
+      text-decoration: none
+      color: #262D33
+      &:hover
+        color: #636060
+    &-item
+      position: relative
+      border-radius: 10px
+      background-color: #ffffff
+      overflow: hidden
+      &-1
+        grid-area: 1 / 1 / 2 / 3
+        padding: 35px
+        position: relative
+        overflow: hidden
+        .category-name
+          font-weight: 900
+          font-size: 12px
+          line-height: 15px
+          color: #6E99AE
+          text-transform: uppercase
+          letter-spacing: 0.5px
+        .article-grid
+          &-thumb
+            position: absolute
+            right: 0
+            top: 0
+            height: 83%
+            width: 45%
+            object-fit: cover
+          &-title
+            max-width: 238px
+            font-family: Roboto Slab
+            font-style: normal
+            font-weight: bold
+            font-size: 25px
+            line-height: 30px
+            margin-top: 20px
+            margin-bottom: 25px
+          &-excerpt
+            max-width: 228px
+            color: #4B5157
+            margin-bottom: 50px
+          &-info
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            padding: 15px 35px
+            border-top: 1px solid #D9DADB
+            display: flex
+            align-items: center
+            justify-content: space-between
+            .author
+              display: flex
+              align-items: center
+              &-avatar
+                width: 30px
+                height: 30px
+                border-radius: 50%
+                margin-right: 10px
+              &-name
+                width: 390px
+                white-space: nowrap
+                overflow: hidden
+                margin-right: 15px
+                strong
+                  font-weight: 900
+            .comments
+              display: flex
+              align-items: center
+              &-counter
+                margin-left: 5px
+                font-size: 12px
+                line-height: 15px
+                color: #939699
+      &-2
+        grid-area: 1 / 3 / 2 / 4
+        position: relative
+        background-color: transparent
+        &::before
+          content: ''
+          position: absolute
+          z-index: -1
+          width: 100%
+          height: 100%
+          background: linear-gradient(0deg, rgba(64, 48, 61, 0.35), rgba(64, 48, 61, 0.35))
+        .article-grid
+          &-thumb
+            position: absolute
+            object-fit: cover
+            height: 100%
+            width: 100%
+            left: 0
+            top: 0
+            z-index: 0
+            object-fit: cover
+          &-permalink
+            position: absolute
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            align-items: flex-start
+            padding: 25px
+          &-title
+            font-family: Roboto Slab
+            font-style: normal
+            font-weight: bold
+            font-size: 16px
+            line-height: 25px
+            text-transform: uppercase
+            color: #ffffff
+            margin-top: 23px
+            margin-bottom: 27px
+        .tag
+          padding: 12px 25px
+          background-color: #3DC47E
+          border-radius: 3px
+          color: #ffffff
+          font-size: 12px
+          line-height: 15px
+          text-transform: capitalize
+        .category-name
+          margin-top: auto
+          color: #E7D9FF
+          text-transform: uppercase
+          font-family: 'Lato Black', sans-serif
+          font-size: 12px
+          line-height: 15px
+          letter-spacing: 0.5px
+        .author
+          display: flex
+          align-items: center
+          &-avatar
+            margin-right: 10px
+            width: 45px
+            height: 45px
+            border-radius: 50%
+          &-info
+            display: flex
+            align-items: center
+            flex-wrap: wrap
+            color: #ffffff
+            .date, .comments, .likes
+              opacity: 0.4
+              display: flex
+              align-items: center
+              margin-right: 7px
+              &-counter
+                margin-left: 5px
+          &-name
+            flex-basis: 100%
+            opacity: 0.85
+      &-3
+        grid-area: 2 / 1 / 4 / 2
+        .article
+          &-thumb
+            height: 275px
+            object-fit: cover
+            width: 100%
+          &-grid
+            &-title
+              padding: 15px 25px 30px
+              margin: 0
+              font-family: Roboto Slab
+              font-style: normal
+              font-weight: bold
+              font-size: 16px
+              line-height: 25px
+      &-default
+        position: relative
+        .article
+          &-grid
+            &-permalink
+              position: absolute
+              padding: 25px 25px 30px
+              width: 100%
+              height: 100%
+              display: flex
+              flex-direction: column
+              justify-content: space-between
+              align-items: flex-start
+              .date
+                font-family: Lato Regular
+                font-size: 12px
+                line-height: 15px
+                color: #939699
+            &-title
+              font-family: Roboto Slab
+              font-style: normal
+              font-weight: bold
+              font-size: 16px
+              line-height: 25px
+              margin: 0
+              margin-bottom: 5px
+            &-excerpt
+              margin-top: 0
+              margin-bottom: auto
+              font-family: Lato Regular
+              color: #4B5157
+
+
+
+
+

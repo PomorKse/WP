@@ -1,0 +1,41 @@
+.article
+  &-list
+    margin: 0
+    padding: 0
+    margin-top: 180px
+    list-style: none
+    display: flex
+    align-items: center
+    background-color: #30363D
+    border-radius: 10px
+  &-item
+    width: 25%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 30px 25px 35px
+    position: relative
+    &:not(:last-child)::after
+      content: ''
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      right: 0
+      height: 70%
+      width: 1px
+      background-color: #4B5157
+      display: block
+    img
+      width: 65px
+      height: 65px
+  &-permalink
+    text-decoration: none
+    color: #ffffff
+    width: 150px
+    &:hover
+          color: #636060
+    &:visited
+          color: #636060
+
+  &-title
+    margin: 0
