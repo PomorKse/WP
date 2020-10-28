@@ -32,9 +32,13 @@
                   <div class="post-text">
                     <?php 
                       foreach (get_the_category()  as $category) {
-                        printf()
+                        printf(
+                          '<a href="%s" class="category-link %s">%s</a>',
+                          esc_url( get_category_link($category) ),
+                          esc_html( $category -> slug ),
+                          esc_html( $category -> name )
+                        );
                       }
-                    
                     ?>
                     <h2 class="post-title"><?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?></h2>
                     <a href="<?php echo get_the_permalink(); ?> ?>" class="more">Читать далее</a>
@@ -68,7 +72,16 @@
                   ?>
                   <!-- Выводим записи -->
           <li class="post">
-            <?php the_category(); ?>
+            <?php 
+              foreach (get_the_category()  as $category) {
+                printf(
+                  '<a href="%s" class="category-link %s">%s</a>',
+                  esc_url( get_category_link($category) ),
+                  esc_html( $category -> slug ),
+                  esc_html( $category -> name )
+                );
+              }
+            ?>
             <a class="post-permalink" href="<?php echo get_the_permalink(); ?>">
               <h4 class="post-title"><?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?></h4>
             </a>
@@ -253,8 +266,10 @@
       ?>
     </ul>
     <!-- end .article-grid -->
-    <!-- Подключаем сайдбар -->
-    <?php get_sidebar(''); ?>
+
+    <!-- Подключаем сайдбар сверху -->
+    <?php get_sidebar('home-top'); ?>
+
   </div>
   <!-- end .main-grid -->
 </div>
@@ -275,7 +290,7 @@ if ( $query->have_posts() ) {
     <section class="investigation" style="background: linear-gradient(0deg, rgba(64, 48, 61, 0.35), rgba(64, 48, 61, 0.35)), url(<?php echo get_the_post_thumbnail_url(); ?>) no-repeat center center">
       <div class="container">
         <h2 class="investigation-title"><?php the_title(); ?></h2>
-        <a href="<?php echo get_the_permalink(); ?> ?>" class="more">Читать статью</a>
+        <a href="<?php echo get_the_permalink(); ?>" class="more">Читать статью</a>
       </div>
     </section>
     <!-- end .investigation -->
@@ -298,7 +313,7 @@ wp_reset_postdata(); // Сбрасываем $post
 
         $query = new WP_Query( [
           'posts_per_page' => 6,
-          'category_name' => 'горячее, мнения, подборки, новости'
+          'category_name' => 'hot, viewpoint, selection, news'
         ] );
 
         if ( $query->have_posts() ) {
@@ -306,11 +321,22 @@ wp_reset_postdata(); // Сбрасываем $post
             $query->the_post();
       ?>
             
-      <a href="<?php the_permalink(); ?>" class="article-grid-permalink">
-        <li class="article-list-2-item">
+      <li class="article-list-2-item">
+        <a href="<?php the_permalink(); ?>" class="article-list-2-permalink">
           <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="article-list-2-thumb">
           <div class="article-list-2-item-wrapper">
-            <span class="category-name"><?php $category = get_the_category(); echo $category[0]->name; ?></span>
+            <span>
+              <?php 
+                foreach (get_the_category() as $category) {
+                  printf(
+                    "<a href='%s' class='category-link %s'>%s</a>",
+                    esc_url( get_category_link($category) ),
+                    esc_html( $category -> slug ),
+                    esc_html( $category -> name )
+                  );
+                }
+              ?>
+            </span>
             <h4 class="article-list-2-title"><?php echo mb_strimwidth(get_the_title(), 0, 100, " ..."); ?></h4>
             <p class="article-list-2-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 200, " ..."); ?></p>
             <div class="article-list-2-item-info">
@@ -327,8 +353,8 @@ wp_reset_postdata(); // Сбрасываем $post
             <!-- end .article-grid-info -->
           </div>
           <!-- end .article-list-2-item-wrapper -->
+        </a>
         </li>
-      </a>
 
       <?php 
           }
@@ -340,7 +366,11 @@ wp_reset_postdata(); // Сбрасываем $post
       ?>
       
     </ul>
-    <!-- end .article-container -->
+    <!-- end .article-list-2 -->
+    
+    <!-- Подключаем сайдбар снизу -->
+    <?php get_sidebar('home-bottom'); ?>
+
   </div>
   <!-- end .main-grid -->
 </div>

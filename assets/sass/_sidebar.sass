@@ -1,8 +1,9 @@
+body
+  counter-reset: section
 .sidebar
   &-front-page
-    margin: 30px
-    margin-right: 0
-    max-width: 263px
+    margin-left: 30px
+    width: 23%
     display: flex
     flex-direction: column
     align-items: space-between
@@ -11,9 +12,12 @@
   border-radius: 10px
   &-title
     font-family: "Lato Black", sans-serif
+    font-size: 14px
+    line-height: 20px
     padding: 20px 25px
     border-bottom: 1px solid #D9DADB
     text-transform: uppercase  
+    letter-spacing: 0,5px
   &-downloader
     background: #3BBDC4 url(../img/file.svg) no-repeat top 24px right 22px
     color: #ffffff
@@ -68,11 +72,10 @@
         border-bottom: none
         margin: 0
       &-social-links
-        padding: 12px 36px 40px
+        padding: 12px 36px 25px
         display: flex
         justify-content: space-between
         align-items: center
-.widget
   &_tag_cloud
     .tagcloud
       display: flex   
@@ -80,7 +83,7 @@
       justify-content: flex-start
       flex-wrap: wrap
       padding: 25px
-      padding-bottom: 65px
+      padding-bottom: 40px
       .tag-cloud-link
         text-decoration: none
         text-transform: capitalize
@@ -91,5 +94,44 @@
         font-family: "Lato Black", sans-serif
         color: #262D33  
         border-radius: 5px
+  &-recent-posts
+    &-wrapper
+      padding: 0 25px
+      overflow: hidden
+    a
+      display: flex
+      align-items: center
+      text-decoration: none
+      padding-top: 17px
+      padding-bottom: 17px
+      position: relative
+      &:not(:last-child)
+        border-bottom: 1px solid #D9DADB
+      &::before
+        counter-increment: section
+        content: counter(section)
+        position: absolute
+        right: 5px
+        font-family: 'Lato Black', sans-serif
+        font-style: italic
+        font-size: 70px
+        line-height: 50px
+        color: #262D33
+        opacity: 0.08
+    h4
+      color: #4B5157
+      font-size: 14px
+      line-height: 20px
+      margin-top: 0
+      margin-bottom: 5px
+    img
+      width: 60px
+      height: 60px
+      margin-right: 10px
+    span
+      font-size: 12px
+      line-height: 15px
+      color: #939699
+
 
 
