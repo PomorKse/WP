@@ -18,6 +18,8 @@
       color: #262D33
       &:hover
         color: #636060
+      &:visited
+        color: #636060
     &-item
       position: relative
       border-radius: 10px
@@ -40,7 +42,7 @@
             position: absolute
             right: 0
             top: 0
-            height: 86%
+            height: 82%
             width: 45%
             object-fit: cover
           &-title
@@ -84,6 +86,10 @@
             .comments
               display: flex
               align-items: center
+              &-icon
+                width: 14px
+                height: 14px
+                fill: #BCBFC2
               &-counter
                 margin-left: 5px
                 font-size: 12px
@@ -159,6 +165,17 @@
             align-items: center
             flex-wrap: wrap
             color: #ffffff
+            .comments-icon
+              width: 14px
+              height: 14px
+              fill: #ffffff
+              opacity: 0.4
+            .likes-icon
+              width: 14px
+              height: 14px
+              fill: #ffffff
+              opacity: 0.4
+
             .date, .comments, .likes
               opacity: 0.4
               display: flex
@@ -199,7 +216,6 @@
               justify-content: space-between
               align-items: flex-start
               .date
-                font-family: Lato Regular
                 font-size: 12px
                 line-height: 15px
                 color: #939699
@@ -214,7 +230,6 @@
             &-excerpt
               margin-top: 0
               margin-bottom: auto
-              font-family: Lato Regular
               color: #4B5157
 
 

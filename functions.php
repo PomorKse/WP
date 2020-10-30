@@ -204,7 +204,6 @@ class Social_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
     $title = $instance['title'];
 		$link_facebook = $instance['link_facebook'];
-		//$link_instagram = $instance['link_instagram'];
 		$link_twitter = $instance['link_twitter'];
 		$link_youtube = $instance['link_youtube'];
 
@@ -215,23 +214,21 @@ class Social_Widget extends WP_Widget {
     }
 		if ( ! empty( $link_facebook ) ) {
 			echo '<div class="widget-social-links"><a target="_blank" class="widget-link" href="' . $link_facebook . '">
-			<img class="widget-link-icon" src=" ' . get_template_directory_uri() . '/assets/img/facebook.svg">
-			</a>';
+			<svg class="widget-link-icon">
+				<use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#facebook"></use>
+			</svg>';
 		}
-		/*if ( ! empty( $link_instagram ) ) {
-			echo '<a target="_blank" class="widget-link" href="' . $link_instagram . '">
-			<img class="widget-link-icon" src=" ' . get_template_directory_uri() . '/assets/img/instagram.svg">
-			</a>';
-		}*/
 		if ( ! empty( $link_twitter ) ) {
 			echo '<a target="_blank" class="widget-link" href="' . $link_twitter . '">
-			<img class="widget-link-icon" src=" ' . get_template_directory_uri() . '/assets/img/twitter.svg">
-			</a>';
+			<svg class="widget-link-icon">
+				<use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#twitter"></use>
+			</svg>';
 		}
 		if ( ! empty( $link_youtube ) ) {
 			echo '<a target="_blank" class="widget-link" href="' . $link_youtube . '">
-			<img class="widget-link-icon" src=" ' . get_template_directory_uri() . '/assets/img/youtube.svg">
-			</a></div>';
+			<svg class="widget-link-icon">
+				<use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#youtube"></use>
+			</svg>';
 		}
 		echo $args['after_widget'];
 	}
@@ -366,8 +363,14 @@ class Recent_Posts_Widget extends WP_Widget {
 			foreach( $recent_posts as $post ){
 				setup_postdata( $post );
 				?>
-				<a href="<?php the_permalink(); ?>" class="recent-post-link">
-					<img src="<?php echo get_the_post_thumbnail_url(null, 'thumbnail'); ?>" alt="">
+				<a href="<?php the_permalink(); ?>" class="recent-posts-link">
+					<img src="<?php if( has_post_thumbnail() ) {
+														echo get_the_post_thumbnail_url(null, 'thumbnail'); 
+													}
+													else {
+														echo get_template_directory_uri() . '/assets/img/img-default.png';
+													}
+										?>" alt="">
 					<div class="recent-post-info">
 						<h4><?php echo mb_strimwidth(get_the_title(), 0, 35, "..."); ?></h4>
 						<span class="recent-post-time">
@@ -383,6 +386,7 @@ class Recent_Posts_Widget extends WP_Widget {
 			
 			echo '</div>';
 			wp_reset_postdata(); // Сбрасываем $post
+			echo '<a href="" class="widget-recent-posts-readmore">Read more</a>';
 			echo $args['after_widget'];
     }
 	}
@@ -475,7 +479,10 @@ add_action( 'widgets_init', 'register_recenr_posts_widget' );
   function enqueue_universal_style() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
     wp_enqueue_style( 'Roboto-Slab', '//fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-    wp_enqueue_style( 'universal-theme', get_template_directory_uri() . '/assets/css/universal-theme.css', 'style', time());
+		wp_enqueue_style( 'swiper-slider', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', 'style', time());
+		wp_enqueue_style( 'universal-theme', get_template_directory_uri() . '/assets/css/universal-theme.css', 'style', time());
+		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', null, time(), true );	
+		wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', 'swiper', time(), true );		
   }  
 	add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' );
 	
@@ -485,7 +492,7 @@ add_action( 'widgets_init', 'register_recenr_posts_widget' );
 		$args['unit'] = 'px';
 		$args['largest'] = 14;
 		$args['smallest'] = 14;	
-		$args['number'] = 14;	
+		$args['number'] = 12;	
 		$args['orderby'] = 'count';	
 		return $args;
 	}
