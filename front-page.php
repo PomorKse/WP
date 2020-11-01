@@ -428,6 +428,7 @@ wp_reset_postdata(); // Сбрасываем $post
   <div class="container">
     <div class="special-grid">
 
+      <!-- Левый раздел photo-report -->
       <?php		
         global $post;
                 
@@ -504,6 +505,7 @@ wp_reset_postdata(); // Сбрасываем $post
       ?>
       <!-- end .photo-report -->
 
+      <!-- Правый раздел other -->
       <div class="other">
         <!--Раздел карьера-->
         <?php		
@@ -565,7 +567,6 @@ wp_reset_postdata(); // Сбрасываем $post
 
         </div>
         <!-- end .other-default -->
-
       </div>
       <!-- end .other -->
     </div>
@@ -576,4 +577,4 @@ wp_reset_postdata(); // Сбрасываем $post
 </div>
 <!-- end .special -->
 
-<?php wp_footer(); ?>
+<?php get_footer(); ?>

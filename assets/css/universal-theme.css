@@ -50,6 +50,7 @@ body {
 .menu-item a {
   text-decoration: none;
   color: #ffffff;
+  font-family: 'Lato Black', sans-serif;
   margin: 0 15px;
   font-weight: 900;
 }
@@ -1185,4 +1186,113 @@ body {
 
 .other-default-item-excerpt {
   color: #4B5157;
+}
+
+.footer {
+  padding: 60px 113px 55px;
+  background-color: #ffffff;
+}
+
+.footer-menu {
+  border-top: 5px solid #000;
+  padding-right: 20px;
+  flex-basis: 100%;
+}
+
+.footer-menu:nth-child(1) {
+  border-top: 5px solid #FF4F52;
+}
+
+.footer-menu:nth-child(2) {
+  border-top: 5px solid #AC8EE3;
+}
+
+.footer-menu:nth-child(3) {
+  border-top: 5px solid #4592FF;
+}
+
+.footer-menu:nth-child(4) {
+  border-top: 5px solid #FFA34D;
+}
+
+.footer-menu:nth-child(5) {
+  border-top: 5px solid #3DC47E;
+}
+
+.footer-menu:nth-child(6) {
+  border-top: 5px solid #6E99AE;
+}
+
+.footer-menu-title {
+  font-family: 'Lato Black', sans-serif;
+  color: #262D33;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.footer-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-menu ul a {
+  display: inline-block;
+  margin: 0 0 15px 0;
+  color: #4B5157;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.footer-menu-bar {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 65px;
+}
+
+.footer-info {
+  padding: 45px 0;
+  border-top: 1px solid #D9DADB;
+  border-bottom: 1px solid #D9DADB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.footer-info ul a {
+  font-family: 'Lato Black', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #262D33;
+}
+
+.footer-info .widget-link {
+  text-decoration: none;
+}
+
+.footer-info .widget-link-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.footer-text-wrapper {
+  padding: 40px 0 55px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #939699;
+}
+
+.footer-text-wrapper p {
+  margin: 0;
+  max-width: 750px;
 }

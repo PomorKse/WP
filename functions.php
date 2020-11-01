@@ -27,7 +27,7 @@ endif;
 
   add_action( 'after_setup_theme', 'universal_theme_setup');
   
-  //Подключение сайдбара main-sidebar
+  //Подключение сайдбаров
   
   function universal_theme_widgets_init() {
     register_sidebar(
@@ -51,7 +51,30 @@ endif;
         'before_title'  => '<h2 class="widget-title">',
         'after_title'   => '</h2>',
       )
-    );
+		);
+		register_sidebar(
+      array(
+        'name'          => esc_html__( 'Меню в подвале', 'universal_example' ),
+				'id'            => 'sidebar-footer',
+				'description'   => esc_html__( 'Добавьте элементы меню сюда', 'universal_example' ),
+        'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="footer-menu-title">',
+        'after_title'   => '</h2>',
+      )
+		);
+		register_sidebar(
+      array(
+        'name'          => esc_html__( 'Текст в подвале', 'universal_example' ),
+				'id'            => 'sidebar-footer-text',
+				'description'   => esc_html__( 'Добавьте текст сюда', 'universal_example' ),
+        'before_widget' => '<section id="%1$s" class="footer-text %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '',
+        'after_title'   => '',
+      )
+		);
+
   }
   add_action( 'widgets_init', 'universal_theme_widgets_init' );
 
@@ -216,21 +239,21 @@ class Social_Widget extends WP_Widget {
 			echo '<div class="widget-social-links"><a target="_blank" class="widget-link" href="' . $link_facebook . '">
 			<svg class="widget-link-icon">
 				<use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#facebook"></use>
-			</svg>';
+			</svg></a>';
 		}
 		if ( ! empty( $link_twitter ) ) {
 			echo '<a target="_blank" class="widget-link" href="' . $link_twitter . '">
 			<svg class="widget-link-icon">
 				<use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#twitter"></use>
-			</svg>';
+			</svg></a>';
 		}
 		if ( ! empty( $link_youtube ) ) {
 			echo '<a target="_blank" class="widget-link" href="' . $link_youtube . '">
 			<svg class="widget-link-icon">
 				<use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#youtube"></use>
-			</svg>';
+			</svg></a>';
 		}
-		echo $args['after_widget'];
+		echo '</div>' . $args['after_widget'];
 	}
 
 	/**
@@ -363,7 +386,7 @@ class Recent_Posts_Widget extends WP_Widget {
 			foreach( $recent_posts as $post ){
 				setup_postdata( $post );
 				?>
-				<a href="<?php the_permalink(); ?>" class="recent-posts-link">
+				<a href="#" class="recent-posts-link">
 					<img src="<?php if( has_post_thumbnail() ) {
 														echo get_the_post_thumbnail_url(null, 'thumbnail'); 
 													}
