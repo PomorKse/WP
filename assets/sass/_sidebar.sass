@@ -76,9 +76,11 @@ body
         display: flex
         justify-content: space-between
         align-items: center
-      &-link-icon
-        width: 50px
-        height: 50px
+      &-link
+        text-decoration: none
+        &-icon
+          width: 50px
+          height: 50px
   &_tag_cloud
     .tagcloud
       display: flex   
@@ -98,6 +100,7 @@ body
         color: #262D33  
         border-radius: 5px
   &-recent-posts
+    max-width: 270px
     &-readmore
       text-decoration: none
       font-family: "Lato Black", sans-serif
@@ -145,6 +148,36 @@ body
       font-size: 12px
       line-height: 15px
       color: #939699
+@media screen and ( max-width: 1200px )
+  .sidebar-front-page
+    margin: 0
+    margin-bottom: 30px
+    flex-basis: 100%
+    flex-direction: row
+    justify-content: center
+    section
+      margin: 0
+      &:not(:last-child)
+        margin-right: 30px
+      .widget
+        &-social-links
+          display: block
+          text-align: center
+        &-recent-posts
+          max-width: 300px
+@media screen and ( max-width: 768px )
+  .sidebar-front-page
+    flex-direction: column
+    flex-wrap: wrap
+    align-items: center
+    section
+      &:not(:last-child)
+        margin-right: 0
+        margin-bottom: 30px
+    .widget
+      &_tag_cloud
+        order: -1
+
 
 
 

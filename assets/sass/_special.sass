@@ -120,14 +120,12 @@
       margin-bottom: 45px
   &-default
     display: flex
-    align-items: center
     &-item
       &-permalink
         text-decoration: none
         background-color: #ffffff
         border-radius: 10px
         padding: 25px
-        border-bottom: 30px
         flex-direction: column
         justify-content: space-between
         align-items: flex-start
@@ -146,6 +144,30 @@
         color: #262D33
       &-excerpt
         color: #4B5157
+@media screen and ( max-width: 1200px )
+  .special-grid
+    flex-direction: column
+    align-items: center
+    .photo-report
+      width: 100%
+      margin-bottom: 30px
+    .other
+      width: 100%
+@media screen and ( max-width: 768px )
+  .special
+    .other
+      &-default
+        flex-direction: column
+        flex-basis: 100%
+        &-item-permalink
+          margin: 0
+          margin-bottom: 30px
+@media screen and ( max-width: 768px )
+  .photo-report-title
+    font-size: 35px
+    line-height: 40px
 
+  
+  
 
 

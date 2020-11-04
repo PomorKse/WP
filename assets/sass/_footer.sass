@@ -5,6 +5,7 @@
     border-top: 5px solid #000
     padding-right: 20px
     flex-basis: 100%
+    margin-bottom: 35px
     &:nth-child(1)
       border-top: 5px solid #FF4F52
     &:nth-child(2)
@@ -27,6 +28,7 @@
       padding: 0
       list-style: none
       a
+        font-family: 'Lato Regular', sans-serif
         display: inline-block
         margin: 0 0 15px 0
         color: #4B5157
@@ -69,5 +71,63 @@
       p
         margin: 0
         max-width: 750px
-    
+@media screen and ( max-width: 1024px )
+  .footer
+    padding-right: 80px
+    padding-left: 80px
+    &-menu
+      &-bar
+        flex-wrap: wrap
+        justify-content: center
+        .footer-menu
+          flex-basis: 30%
+    &-info
+      flex-wrap: wrap
+      align-items: center
+      justify-content: center
+      nav
+        flex-basis: 100%
+        ul
+          justify-content: center
+      .footer-social
+        padding-top: 30px
+    &-text-wrapper
+      flex-wrap: wrap
+      p
+        margin-bottom: 30px
+@media screen and ( max-width: 768px )
+  .footer
+    &-menu
+      &-bar
+        justify-content: center
+        .footer-menu
+          flex-basis: 50%
+    &-info
+      nav
+      ul
+        flex-wrap: wrap
+        .menu-item
+          flex-basis: 50%
+          text-align: center
+          margin-bottom: 20px
+      .footer-social
+        padding-top: 15px
+        .widget-link-icon
+          margin: 0
+@media screen and ( max-width: 576px )
+  .footer
+    &-menu
+      margin: 0
+      &-bar
+        .footer-menu
+          flex-basis: 100%
+    &-info
+      ul
+        flex-direction: column
+        a
+          margin: 0
+
+
+
+
 
