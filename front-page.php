@@ -44,7 +44,7 @@
                       }
                     ?>
                     <h2 class="post-title"><?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?></h2>
-                    <a href="<?php echo get_the_permalink(); ?> ?>" class="more">Читать далее</a>
+                    <a href="<?php echo get_the_permalink(); ?>" class="more">Читать далее</a>
                   </div>
             <?php 
               }
