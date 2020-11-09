@@ -12,12 +12,22 @@
         <div class="header-wrapper">
             <?php
                 if( has_custom_logo() ){
-                  the_custom_logo();
-                } else {
-                  echo 'Universal';
+                  $logo_img = '';
+                  if( $custom_logo_id = get_theme_mod('custom_logo') ){
+                    $logo_img = wp_get_attachment_image( $custom_logo_id, 'full', false, array(
+                      'class'    => 'custom-logo',
+                      'itemprop' => 'logo',
+                    ) );
+                  }
+                  echo '<div class="logo">' . $logo_img . '<span class="logo-name">' .
+                  get_bloginfo( 'name' ) . '</span></div>';
+                  } else {
+                  echo '<span class="logo-name">' . get_bloginfo( 'name' ) . '</span>';
                 }
-            ?>
-            <?php
+                
+                
+                
+
               wp_nav_menu( [
                 'theme_location'  => 'header_menu',
                 'container'       => 'nav', 
@@ -25,8 +35,8 @@
                 'menu_class'      => 'header-menu', 
                 'echo'            => true
               ] );
-              ?>
-              <?php echo get_search_form(); ?>
+              
+              echo get_search_form(); ?>
               <a href="#" class="header-menu-toggle">
                 <span></span>
                 <span></span>

@@ -382,7 +382,7 @@ wp_reset_postdata(); // Сбрасываем $post
               ?>
             </span>
             <h4 class="article-list-2-title"><?php echo mb_strimwidth(get_the_title(), 0, 100, " ..."); ?></h4>
-            <p class="article-list-2-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 200, " ..."); ?></p>
+            <p class="article-list-2-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 160, " ..."); ?></p>
             <div class="article-list-2-item-info">
               <span class="date"><?php the_time( 'j F' ); ?></span>
               <div class="comments">

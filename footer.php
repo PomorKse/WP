@@ -11,30 +11,37 @@
       </div><!-- end.footer-menu-bar -->
 
       <div class="footer-info">
-      <?php
-        wp_nav_menu( [
-          'theme_location'  => 'footer_menu',
-          'container'       => 'nav', 
-          'menu_class'      => 'footer-nav', 
-          'echo'            => true
-        ] );
-      
-      //Выводим виджет социальных сетей
+        <?php
+          if( has_custom_logo() ){
+                echo '<div class="logo">' . get_custom_logo() . '</div>';
+              } else {
+                echo '<span class="logo-name">' . get_bloginfo( 'name' ) . '</span>';
+              }
 
-      $instance = [
-        'title'         => '',
-        'link_facebook' => 'http://facebook.com',
-        'link_twitter'  => 'http://twitter.com',
-        'link_youtube'  => 'http://youtube.com'
-      ];
+          wp_nav_menu( [
+            'theme_location'  => 'footer_menu',
+            'container'       => 'nav', 
+            'container_class' => 'footer-nav-wrapper', 
+            'menu_class'      => 'footer-nav', 
+            'echo'            => true
+          ] );
+        
+        //Выводим виджет социальных сетей
 
-      $args = [
-        'before_widget' => '<div class="footer-social">',
-        'after_widget'  => '</div>'
-      ];
-      
-      the_widget( 'Social_Widget', $instance, $args );
-      ?>
+        $instance = [
+          'title'         => '',
+          'link_facebook' => 'http://facebook.com',
+          'link_twitter'  => 'http://twitter.com',
+          'link_youtube'  => 'http://youtube.com'
+        ];
+
+        $args = [
+          'before_widget' => '<div class="footer-social">',
+          'after_widget'  => '</div>'
+        ];
+        
+        the_widget( 'Social_Widget', $instance, $args );
+        ?>
       </div>
       <!-- end .footer-info -->
       <div class="footer-text-wrapper">
