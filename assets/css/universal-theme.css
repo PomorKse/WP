@@ -1084,6 +1084,77 @@ body {
   color: #939699;
 }
 
+.widget-category-articles {
+  background-color: #F5F5F5;
+}
+
+.widget-category-articles-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 60px 0 90px;
+}
+
+.widget-category-articles-link {
+  text-decoration: none;
+}
+
+.widget-category-articles-item-wrapper {
+  width: 263px;
+}
+
+.widget-category-articles-item-wrapper:not(:last-child) {
+  margin-right: 30px;
+}
+
+.widget-category-articles-item-wrapper img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 180px;
+  border-radius: 10px;
+}
+
+.widget-category-articles-title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  color: #262D33;
+  margin: 15px 0;
+}
+
+.widget-category-articles-info {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 12px;
+  line-height: 15px;
+  color: #939699;
+}
+
+.widget-category-articles-info .views, .widget-category-articles-info .comments {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.widget-category-articles-info .views-counter, .widget-category-articles-info .comments-counter {
+  margin-left: 5px;
+}
+
+.widget-category-articles-info .views-icon {
+  width: 15px;
+  height: 10px;
+  fill: #BCBFC2;
+}
+
+.widget-category-articles-info .comments-icon {
+  width: 14px;
+  height: 14px;
+  fill: #BCBFC2;
+}
+
 @media screen and (max-width: 1200px) {
   .sidebar-front-page {
     margin: 0;
@@ -1901,6 +1972,7 @@ body {
 
 .post-content {
   padding-top: 60px;
+  padding-bottom: 30px;
 }
 
 .post-content p {
@@ -2036,6 +2108,14 @@ body {
   color: #4B5157;
 }
 
+.post-footer .tags-links {
+  padding-bottom: 60px;
+  border-bottom: 1px solid #D9DADB;
+  max-width: 623px;
+  width: 100%;
+  display: block;
+}
+
 .post-footer .tags-links a {
   margin-right: 10px;
   padding: 5px 15px;
@@ -2049,4 +2129,21 @@ body {
 
 .post-footer .tags-links a:visited {
   color: #262D33;
+}
+
+.meks_ess {
+  max-width: 623px;
+  margin-top: 30px;
+}
+
+.meks_ess-item {
+  margin-right: 15px !important;
+}
+
+.meks_ess_share_label {
+  font-size: 25px;
+  line-height: 30px;
+  font-family: Roboto Slab;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }

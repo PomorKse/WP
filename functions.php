@@ -1,4 +1,6 @@
 <?php 
+require "inc/category-articles-widget.php";
+
 //Добавление расширенных возможностей
 if ( ! function_exists( 'universal_theme_setup' ) ) :
 
@@ -72,6 +74,15 @@ endif;
         'after_widget'  => '</section>',
         'before_title'  => '',
         'after_title'   => '',
+      )
+		);
+		register_sidebar(
+      array(
+        'name'          => esc_html__( 'Сайдбар на странице поста', 'universal_example' ),
+				'id'            => 'post-sidebar',
+				'description'   => esc_html__( 'Добавьте элементы сюда', 'universal_example' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
       )
 		);
 
@@ -339,6 +350,7 @@ class Social_Widget extends WP_Widget {
 } 
 // конец класса Social_Widget
 
+
 //Добавление нового виджета Recent_Posts_Widget
  
 class Recent_Posts_Widget extends WP_Widget {
@@ -479,6 +491,9 @@ class Recent_Posts_Widget extends WP_Widget {
 } 
 // конец класса Recent_Posts_Widget
 
+ 
+
+
 // регистрация Downloader_Widget в WordPress
 function register_downloader_widget() {
 	register_widget( 'Downloader_Widget' );
@@ -492,10 +507,12 @@ function register_social_widget() {
 add_action( 'widgets_init', 'register_social_widget' );
 
 // регистрация Recent_Posts_Widget в WordPress
-function register_recenr_posts_widget() {
+function register_recent_posts_widget() {
 	register_widget( 'Recent_Posts_Widget' );
 }
-add_action( 'widgets_init', 'register_recenr_posts_widget' );
+add_action( 'widgets_init', 'register_recent_posts_widget' );
+
+
 
 
   //Подключение стилей и скриптов

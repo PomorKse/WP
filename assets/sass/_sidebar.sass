@@ -148,6 +148,53 @@ body
       font-size: 12px
       line-height: 15px
       color: #939699
+  &-category-articles
+    background-color: #F5F5F5
+    &-wrapper
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+      padding: 60px 0 90px
+    &-link
+      text-decoration: none
+    &-item-wrapper
+      width: 263px
+      &:not(:last-child)
+        margin-right: 30px
+      img
+        width: 100%
+        object-fit: cover
+        max-height: 180px
+        border-radius: 10px
+    &-title
+      font-family: Roboto Slab
+      font-style: normal
+      font-weight: bold
+      font-size: 16px
+      line-height: 25px
+      color: #262D33
+      margin: 15px 0
+    &-info
+      display: flex
+      align-items: center
+      justify-content: start
+      font-size: 12px
+      line-height: 15px
+      color: #939699
+      .views, .comments
+              display: flex
+              align-items: center
+              margin-right: 10px
+              &-counter
+                margin-left: 5px
+      .views-icon
+        width: 15px
+        height: 10px
+        fill: #BCBFC2
+      .comments-icon
+        width: 14px
+        height: 14px
+        fill: #BCBFC2
 @media screen and ( max-width: 1200px )
   .sidebar-front-page
     margin: 0

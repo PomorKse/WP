@@ -141,8 +141,19 @@
           /* translators: 1: list of tags. */
           printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
-      
+        // Поделиться в соцсетях
+        meks_ess_share();
       ?>
+
+  </div><!-- end .container -->
+      <!-- Подключаем сайдбар статьями из категории -->
+  <div class="widget-category-articles">
+    <div class="container">
+      <?php get_sidebar('post'); ?>
+    </div>
+  </div><!-- end .widget-category-articles -->
+
+  <div class="container">
     </footer><!-- end.post-footer -->
   </div><!-- end.container -->
 
