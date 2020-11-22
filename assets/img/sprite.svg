@@ -20,10 +20,7 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" id="likes">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.84 2.96c-.67-.748-1.56-1.16-2.505-1.16-.947 0-1.74.412-2.41 1.16l-.425.68-.425-.68c-.669-.748-1.463-1.16-2.41-1.16-.945 0-1.835.412-2.504 1.16C.78 4.506.78 7.02 2.16 8.564l4.949 4.757a.523.523 0 00.393.179c.14 0 .28-.06.387-.18l4.95-4.756c1.38-1.544 1.38-4.058 0-5.604z"></path>
   </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="left-arrow">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10v1H6v3l-4-3.5L6 7v3h11z"></path>
-  </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="right-arrow">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="arrow">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M3 10v1h11v3l4-3.5L14 7v3H3z"></path>
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" id="clock">
@@ -37,5 +34,11 @@
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 11" id="views">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M15 5.262s-3 5.113-7.5 5.113S0 5.262 0 5.262 3 .625 7.5.625 15 5.262 15 5.262zM7.5 2.875a2.629 2.629 0 012.625 2.626A2.626 2.626 0 117.5 2.875zm-.001 3.938c.724 0 1.31-.591 1.31-1.316 0-.726-.587-1.317-1.31-1.317-.724 0-1.311.59-1.311 1.316 0 .726.587 1.317 1.31 1.317z"></path>
+  </symbol>
+   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="add-comment">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1 15.2V19h3.8l11-11.1L12 4.1 1 15.2zM18.7 5c.4-.4.4-1 0-1.4l-2.3-2.3c-.4-.4-1-.4-1.4 0l-1.8 1.8L17 6.9 18.7 5z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13" id="thumb">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 12.75A.75.75 0 01.75 12V5.25a.75.75 0 01.75-.75h.75a.75.75 0 01.75.75V12a.75.75 0 01-.75.75H1.5zm11.523-8.54c.675 0 1.227.59 1.227 1.313-.01 1.005-.034 1.559-.072 1.662-.039.104-.67 1.696-1.892 4.777-.184.46-1.696.788-2.187.788H5.79c-.675 0-1.665-.591-1.665-1.314V4.5L8.195.288l.003-.002A.939.939 0 019.525.268c.123.197.245.46.245.722v.197L9.157 4.21h3.866z"></path>
   </symbol>
 </svg>

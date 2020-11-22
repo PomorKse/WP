@@ -36,11 +36,11 @@
               array(
                 'prev_text' => '<span class="post-nav-prev">
                 <svg class="icon prev-icon">
-                  <use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#left-arrow"></use>
+                  <use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#arrow"></use>
                 </svg>' . esc_html__( 'Назад', 'universal-example' ) . '</span>',
                 'next_text' => '<span class="post-nav-next">' . esc_html__( 'Вперед', 'universal-example' ) . 
                 '<svg class="icon next-icon">
-                  <use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#right-arrow"></use>
+                  <use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#arrow"></use>
                 </svg></span>',
               )
             );
