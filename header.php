@@ -19,15 +19,17 @@
                       'itemprop' => 'logo',
                     ) );
                   }
-                  echo '<div class="logo">' . $logo_img . '<span class="logo-name">' .
-                  get_bloginfo( 'name' ) . '</span></div>';
+                    if (is_front_page()) {
+                      echo '<div class="logo">' . $logo_img . '<span class="logo-name">' .
+                      get_bloginfo( 'name' ) . '</span></div>';
+                    } else {
+                      echo '<a class="logo" href="' . get_home_url() . '">' . $logo_img . '<span class="logo-name">' .
+                      get_bloginfo( 'name' ) . '</span></a>';
+                    }
                   } else {
                   echo '<span class="logo-name">' . get_bloginfo( 'name' ) . '</span>';
                 }
                 
-                
-                
-
               wp_nav_menu( [
                 'theme_location'  => 'header_menu',
                 'container'       => 'nav', 

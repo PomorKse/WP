@@ -126,6 +126,8 @@ body {
   border-radius: 10px;
   border: none;
   padding: 10px 25px;
+  outline: none;
+  color: #111;
 }
 
 .search-form input::placeholder {
@@ -222,18 +224,18 @@ body {
   }
 }
 
-.home {
+body {
   background-color: #E5E5E5;
 }
 
-.home .front-page-header {
+body .front-page-header {
   padding-top: 30px;
   background-color: #262D33;
   position: relative;
   height: 475px;
 }
 
-.home .hero {
+body .hero {
   position: relative;
   z-index: 1;
   background-color: #ffffff;
@@ -243,7 +245,7 @@ body {
   min-height: 570px;
 }
 
-.home .left {
+body .left {
   flex-basis: 75%;
   position: relative;
   padding: 55px 55px 100px 55px;
@@ -252,7 +254,7 @@ body {
   justify-content: space-between;
 }
 
-.home .left::before {
+body .left::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -263,7 +265,7 @@ body {
   z-index: 1;
 }
 
-.home .left .post-thumb {
+body .left .post-thumb {
   position: absolute;
   left: 0;
   top: 0;
@@ -273,7 +275,7 @@ body {
   object-fit: cover;
 }
 
-.home .left .author {
+body .left .author {
   position: relative;
   display: flex;
   align-items: center;
@@ -281,35 +283,35 @@ body {
   z-index: 2;
 }
 
-.home .left .author-bio {
+body .left .author-bio {
   margin-left: 10px;
 }
 
-.home .left .author-name {
+body .left .author-name {
   display: block;
   font-size: 14px;
   line-height: 20px;
   color: rgba(255, 255, 255, 0.85);
 }
 
-.home .left .author-rank {
+body .left .author-rank {
   color: rgba(255, 255, 255, 0.4);
   font-size: 12px;
   line-height: 15px;
 }
 
-.home .left .avatar {
+body .left .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.home .left .post-text {
+body .left .post-text {
   position: relative;
   z-index: 2;
 }
 
-.home .left .post-title {
+body .left .post-title {
   font-size: 40px;
   line-height: 50px;
   color: #ffffff;
@@ -319,11 +321,11 @@ body {
   max-width: 590px;
 }
 
-.home .right {
+body .right {
   flex-basis: 25%;
 }
 
-.home .right .recommend {
+body .right .recommend {
   margin: 20px 0px 20px 25px;
   font-weight: 900;
   font-size: 14px;
@@ -331,26 +333,26 @@ body {
   text-transform: uppercase;
 }
 
-.home .right .posts-list {
+body .right .posts-list {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.home .right .post {
+body .right .post {
   padding: 17px 25px 19px 25px;
   margin: 0;
   border-top: 1px solid #D9DADB;
   min-height: 100px;
 }
 
-.home .right .post-categories {
+body .right .post-categories {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.home .right .post-categories a {
+body .right .post-categories a {
   text-decoration: none;
   font-weight: 900;
   font-size: 12px;
@@ -359,16 +361,16 @@ body {
   letter-spacing: 0.5px;
 }
 
-.home .right .post-permalink {
+body .right .post-permalink {
   text-decoration: none;
   color: #4B5157;
 }
 
-.home .right .post:hover {
+body .right .post:hover {
   background-color: #F5F5F5;
 }
 
-.home .right .post-title {
+body .right .post-title {
   min-height: 40px;
   font-size: 14px;
   line-height: 20px;
@@ -1231,10 +1233,19 @@ body {
 
 .article-list-2 {
   margin: 0;
-  margin-bottom: 60px;
   padding: 0;
   background-color: #ffffff;
   border-radius: 10px;
+}
+
+.article-list-2-thumb {
+  width: 336px;
+  height: 195px;
+  object-fit: cover;
+}
+
+.article-list-2-permalink {
+  text-decoration: none;
 }
 
 .article-list-2-title {
@@ -1257,7 +1268,7 @@ body {
   position: relative;
   padding: 25px;
   display: flex;
-  align-items: center;
+  max-height: 245px;
 }
 
 .article-list-2-item:not(:last-child)::after {
@@ -1273,14 +1284,26 @@ body {
 .article-list-2-item-wrapper {
   max-width: 430px;
   margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
 }
 
-.article-list-2-item-wrapper::before {
-  content: url(../img/bookmark.svg);
+.article-list-2-item-wrapper .bookmark {
   position: absolute;
   top: 0;
   right: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.article-list-2-item-wrapper .bookmark svg {
+  fill: #BCBFC2;
+  width: 20px;
+  height: 20px;
 }
 
 .article-list-2-item-info {
@@ -1347,6 +1370,7 @@ body {
 .special {
   background-color: #262D33;
   padding: 60px 0;
+  margin-top: 60px;
 }
 
 .special-grid {
@@ -1774,6 +1798,10 @@ body {
   .footer-info ul a {
     margin: 0;
   }
+}
+
+.site-main {
+  background-color: #fff;
 }
 
 .post-header {
@@ -2419,4 +2447,241 @@ body {
   border: none;
   cursor: pointer;
   outline: none;
+}
+
+@media screen and (max-width: 992px) {
+  .footer-form-title {
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-form-title {
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer-form {
+    flex-direction: column;
+  }
+  .footer-form input {
+    margin: 0;
+    margin-bottom: 20px;
+    min-width: 250px;
+  }
+}
+
+.search-wrapper {
+  display: flex;
+  margin-bottom: 115px;
+}
+
+.search-title {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-family: Roboto Slab;
+  font-size: 40px;
+  line-height: 50px;
+  color: #262D33;
+}
+
+.pagination {
+  margin-top: 40px;
+}
+
+.pagination .nav-links {
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato Black', sans-serif;
+}
+
+.pagination .nav-links * {
+  color: #262D33;
+  padding: 17px;
+  text-align: center;
+}
+
+.pagination .nav-links *:not(:last-child) {
+  border-right: 1px solid #D9DADB;
+}
+
+.pagination .nav-links .prev, .pagination .nav-links .next {
+  padding: 17px 80px;
+  flex-grow: 1;
+}
+
+.pagination .nav-links .prev {
+  margin-right: auto;
+  position: relative;
+}
+
+.pagination .nav-links .prev::before {
+  content: url("../img/pagination-arrow.svg");
+  position: absolute;
+  left: 110px;
+}
+
+.pagination .nav-links .next {
+  margin-left: auto;
+  position: relative;
+}
+
+.pagination .nav-links .next::before {
+  content: url("../img/pagination-arrow.svg");
+  transform: rotate(180deg);
+  position: absolute;
+  right: 110px;
+}
+
+.pagination .nav-links a {
+  text-decoration: none;
+}
+
+.pagination .nav-links a:visited {
+  color: #262D33;
+}
+
+.pagination .nav-links .current {
+  color: #4592FF;
+}
+
+.category-title {
+  font-family: Roboto Slab;
+  font-size: 40px;
+  line-height: 50px;
+  color: #262D33;
+}
+
+.category .post-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category .post-card {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 23%;
+  margin-bottom: 30px;
+  overflow: hidden;
+  margin-right: 2%;
+  position: relative;
+}
+
+.category .post-card-info {
+  position: absolute;
+  bottom: 25px;
+}
+
+.category .post-card-thumb {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.category .post-card a {
+  text-decoration: none;
+}
+
+.category .post-card-title {
+  color: #262D33;
+  font-family: Roboto Slab;
+  font-size: 16px;
+  line-height: 25px;
+  margin: 0;
+}
+
+.category .post-card-excerpt {
+  color: #4B5157;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.category .post-card-text {
+  padding: 15px 25px 70px 25px;
+}
+
+.category .post-card-text .author {
+  display: flex;
+  align-items: center;
+}
+
+.category .post-card-text .author-avatar {
+  margin-right: 10px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.category .post-card-text .author-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #939699;
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.category .post-card-text .author-name {
+  width: 100%;
+  color: #4B5157;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.category .post-card-text .author .date, .category .post-card-text .author .comments, .category .post-card-text .author .likes {
+  display: flex;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.category .post-card-text .author .date-counter, .category .post-card-text .author .comments-counter, .category .post-card-text .author .likes-counter {
+  margin-left: 5px;
+}
+
+.category .post-card-text .author .icon {
+  height: 15px;
+  width: 15px;
+  fill: #BCBFC2;
+}
+
+@media screen and (max-width: 1200px) {
+  .container .post-list {
+    justify-content: center;
+  }
+  .container .post-card {
+    width: 35%;
+  }
+  .container .post-card:not(:last-child) {
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container .post-card {
+    width: 45%;
+  }
+  .container .post-card:not(:last-child) {
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container .post-card {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .container .post-card {
+    width: 100%;
+  }
 }

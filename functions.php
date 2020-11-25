@@ -16,7 +16,7 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
       'width'                  => 163,
 	    'flex-height'            => true,
 	    'header-text'            => 'Universal',
-	    'unlink-homepage-logo'   => false,
+	    'unlink-homepage-logo'   => true,
     ] );
 
     //Регистрация меню

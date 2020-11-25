@@ -1,0 +1,39 @@
+.pagination
+  margin-top: 40px
+  .nav-links
+    background-color: #fff
+    border-radius: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-family: 'Lato Black', sans-serif
+    *
+      color: #262D33
+      padding: 17px
+      text-align: center
+      &:not(:last-child)
+        border-right: 1px solid #D9DADB
+    .prev, .next
+      padding: 17px 80px 
+      flex-grow: 1
+    .prev
+      margin-right: auto
+      position: relative
+      &::before
+        content: url('../img/pagination-arrow.svg')
+        position: absolute
+        left: 110px
+    .next
+      margin-left: auto
+      position: relative
+      &::before
+        content: url('../img/pagination-arrow.svg')
+        transform: rotate(180deg)
+        position: absolute
+        right: 110px
+    a
+      text-decoration: none
+      &:visited
+        color: #262D33
+    .current
+      color: #4592FF
