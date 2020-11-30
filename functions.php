@@ -23,7 +23,104 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
       register_nav_menus( [
         'header_menu' => 'Меню в шапке',
         'footer_menu' => 'Меню в подвале'
-      ] );
+			] );
+			
+			add_action( 'init', 'register_post_types' );
+			function register_post_types(){
+				register_post_type( 'lesson', [
+					'label'  => null,
+					'labels' => [
+						'name'               => 'Уроки', // основное название для типа записи
+						'singular_name'      => 'Урок', // название для одной записи этого типа
+						'add_new'            => 'Добавить урок', // для добавления новой записи
+						'add_new_item'       => 'Добавление урока', // заголовка у вновь создаваемой записи в админ-панели.
+						'edit_item'          => 'Редактирование урока', // для редактирования типа записи
+						'new_item'           => 'Новый урок', // текст новой записи
+						'view_item'          => 'Смотреть урок', // для просмотра записи этого типа.
+						'search_items'       => 'Искать урок', // для поиска по этим типам записи
+						'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+						'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+						'parent_item_colon'  => '', // для родителей (у древовидных типов)
+						'menu_name'          => 'Уроки', // название меню
+					],
+					'description'         => 'Раздел с видеоуроками',
+					'public'              => true,
+					// 'publicly_queryable'  => null, // зависит от public
+					// 'exclude_from_search' => null, // зависит от public
+					// 'show_ui'             => null, // зависит от public
+					// 'show_in_nav_menus'   => null, // зависит от public
+					'show_in_menu'        => true, // показывать ли в меню адмнки
+					// 'show_in_admin_bar'   => null, // зависит от show_in_menu
+					'show_in_rest'        => true, // добавить в REST API. C WP 4.7
+					'rest_base'           => null, // $post_type. C WP 4.7
+					'menu_position'       => 5,
+					'menu_icon'           => 'dashicons-book-alt',
+					'capability_type'   => 'post',
+					//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+					//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+					'hierarchical'        => false,
+					'supports'            => [ 'title', 'editor', 'custom-fields', 'thumbnail' ], // 'title','editor','author','excerpt','trackbacks','comments','revisions','page-attributes','post-formats'
+					'taxonomies'          => [],
+					'has_archive'         => true,
+					'rewrite'             => true,
+					'query_var'           => true,
+				] );
+			}
+
+			// хук, через который подключается функция
+			
+			// регистрирующая новые таксономии (create_lesson_taxonomies)
+			add_action( 'init', 'create_lesson_taxonomies' );
+
+			// функция, создающая 2 новые таксономии "genres" и "teacher" для постов типа "lesson"
+			function create_lesson_taxonomies(){
+
+				// Добавляем древовидную таксономию 'genre' (как категории)
+				register_taxonomy('genre', array('lesson'), array(
+					'hierarchical'  => true,
+					'labels'        => array(
+						'name'              => _x( 'Genres', 'taxonomy general name' ),
+						'singular_name'     => _x( 'Genre', 'taxonomy singular name' ),
+						'search_items'      =>  __( 'Search Genres' ),
+						'all_items'         => __( 'All Genres' ),
+						'parent_item'       => __( 'Parent Genre' ),
+						'parent_item_colon' => __( 'Parent Genre:' ),
+						'edit_item'         => __( 'Edit Genre' ),
+						'update_item'       => __( 'Update Genre' ),
+						'add_new_item'      => __( 'Add New Genre' ),
+						'new_item_name'     => __( 'New Genre Name' ),
+						'menu_name'         => __( 'Genre' ),
+					),
+					'show_ui'       => true,
+					'query_var'     => true,
+					'rewrite'       => array( 'slug' => 'the_genre' ), // свой слаг в URL
+				));
+
+				// Добавляем НЕ древовидную таксономию 'teacher' (как метки)
+				register_taxonomy('teacher', 'lesson',array(
+					'hierarchical'  => false,
+					'labels'        => array(
+						'name'                        => _x( 'Teachers', 'taxonomy general name' ),
+						'singular_name'               => _x( 'Teacher', 'taxonomy singular name' ),
+						'search_items'                =>  __( 'Search Teachers' ),
+						'popular_items'               => __( 'Popular Teachers' ),
+						'all_items'                   => __( 'All Teachers' ),
+						'parent_item'                 => null,
+						'parent_item_colon'           => null,
+						'edit_item'                   => __( 'Edit Teacher' ),
+						'update_item'                 => __( 'Update Teacher' ),
+						'add_new_item'                => __( 'Add New Teacher' ),
+						'new_item_name'               => __( 'New Teacher Name' ),
+						'separate_items_with_commas'  => __( 'Separate teachers with commas' ),
+						'add_or_remove_items'         => __( 'Add or remove teachers' ),
+						'choose_from_most_used'       => __( 'Choose from the most used teachers' ),
+						'menu_name'                   => __( 'Teachers' ),
+					),
+					'show_ui'       => true,
+					'query_var'     => true,
+					//'rewrite'       => array( 'slug' => 'the_teacher' ), // свой слаг в URL
+				));
+			}
   }
 endif;  
 
@@ -528,6 +625,43 @@ add_action( 'widgets_init', 'register_recent_posts_widget' );
 		wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', 'swiper', time(), true );		
   }  
 	add_action( 'wp_enqueue_scripts', 'enqueue_universal_style' );
+
+	//AJAX: цепляемся к событию wp_enqueue_scripts, добавляем свою функцию
+	add_action( 'wp_enqueue_scripts', 'adminAjax_data', 99 );
+function adminAjax_data(){
+
+	// Первый параметр 'jquery' означает, что код будет прикреплен к скрипту с ID 'jquery'
+	// 'jquery' должен быть добавлен в очередь на вывод, иначе WP не поймет куда вставлять код локализации
+	// Заметка: обычно этот код нужно добавлять в functions.php в том месте где подключаются скрипты, после указанного скрипта
+	wp_localize_script( 'jquery', 'adminAjax', 
+		array(
+			'url' => admin_url('admin-ajax.php')//создаем переменную adminAjax c путем до файла-обработчика
+		)
+	);  
+}
+
+add_action('wp_ajax_contacts_form', 'ajax_form');//цепляемся к событию wp_ajax_contacts_form(сами определили contacts_form в script.js), выполняя функцию ajax_form
+add_action('wp_ajax_nopriv_contacts_form', 'ajax_form');//nopriv не только для админки, но и для фронта
+function ajax_form() {
+	$contact_name = $_POST['contact_name'];
+	$contact_email = $_POST['contact_email'];
+	$contact_comment = $_POST['contact_comment'];
+	$message = 'Пользователь ' . $contact_name . 'оставил сообщение ' . $contact_comment . '. Его адрес: ' . $contact_email;
+	echo $message;
+	wp_die();
+	$headers = 'From: Kseniia Pomortseva <pomorzeva46@gmail.com>'; // "\r\n";
+	
+	$send_message = wp_mail('kseniia.pomortzeva@yandex.ru', 'Без темы', $message, $headers);
+	// выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
+	if ($send_message){
+		echo "Все получилось!";
+	}
+	else {
+		echo "где-то ошибка!";
+	}
+
+	wp_die();
+}
 	
   //Добавляем фильтр к виджету с облаком-тегов (ловим событие widget_tag_cloud_args и запускаем свою функцию edit_widget_tag_cloud_args)
 	add_filter( 'widget_tag_cloud_args', 'edit_widget_tag_cloud_args' );

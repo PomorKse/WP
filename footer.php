@@ -70,7 +70,8 @@
           }
           dynamic_sidebar( 'sidebar-footer-text' );
         ?>
-        <span class="footer-copyright"><?php echo '&copy; ' . date('Y'). ' ' . get_bloginfo('name'); ?></span>
+        <a class="footer-copyright" href="tel:<?php the_field('phone') ?>"><?php the_field('phone', 151) ?></a>
+        <span class="footer-copyright"><?php echo '&copy; ' . date('Y'). ' ' . get_bloginfo('name') ?></span>
 
       </div>
       <!-- end .footer-text-wrapper -->
