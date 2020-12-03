@@ -32,10 +32,21 @@ contactsForm.on('submit', function (event) {
     contentType: false,
     data: formData,
     success: function (response) {
-      alert('Ответ сервера: ' + response);
+      //console.log('Ответ сервера: ' + response);
     },
     error: function(rs) {
       console.error(rs);
     }
+  }).done(function() {
+    $('.more').hide();
+    $('.after-submit').show();
+    $('.reset').val('');
   });
 })
+
+//Очищаем форму плагина
+let pluginForm = $('.wpcf7-form');
+pluginForm.on('wpcf7mailsent', function() {
+  $('.more').hide();
+  $('.reset').val('');
+}, false );

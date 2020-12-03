@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div class="container">
+  <?php if ( function_exists( 'universal_breadcrumbs' ) ) universal_breadcrumbs(); ?>
   <h1 class="category-title">
     <?php echo single_cat_title() ?>
   </h1>

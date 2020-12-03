@@ -1,5 +1,6 @@
 <?php 
 require "inc/category-articles-widget.php";
+require "inc/breadcrumps.php";
 
 //Добавление расширенных возможностей
 if ( ! function_exists( 'universal_theme_setup' ) ) :

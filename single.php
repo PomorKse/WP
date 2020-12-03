@@ -1,6 +1,6 @@
 <?php get_header('post'); ?>
   <main class="site-main">
-
+    
 		<?php
     // запускаем цикл Wordpress, проверяем есть ли посты
     while ( have_posts() ) :

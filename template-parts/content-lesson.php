@@ -3,21 +3,13 @@
   <header class="entry-header <?php echo get_post_type(); ?>-header" style="background: linear-gradient(0deg, rgba(38, 45, 51, 0.75), rgba(38, 45, 51, 0.75))">
 
     <div class="container">
-        <div class="post-header-wrapper">
-          <div class="post-header-nav">
-            <?php
-              //Выводим категорию
-              foreach (get_the_category() as $category) {
-                printf(
-                  "<a href='%s' class='category-link %s'>%s</a>",
-                  esc_url( get_category_link($category) ),
-                  esc_html( $category -> slug ),
-                  esc_html( $category -> name )
-                );
-              }
-            ?>
-          </div><!-- end .post-header-nav -->
-          
+      <div class="lesson-header-nav">
+            
+        <!--Подключаем хлебные крошки-->
+        <?php if ( function_exists( 'universal_breadcrumbs' ) ) universal_breadcrumbs(); ?>
+      </div><!-- end .lesson-header-nav -->
+
+
           <div class="video">
             <?php 
             $tmp = get_field('video_link');
@@ -50,7 +42,6 @@
             <span class="date"><?php the_time( 'j F, H:i' ); ?></span>
           </div><!-- end .post-header-info -->
 
-        </div><!-- end .lesson-header-wrapper -->
     </div><!-- end .container -->
 	</header><!-- end.entry-header -->
 

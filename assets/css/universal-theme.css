@@ -1924,7 +1924,6 @@ body {
 
 .post-header-info {
   display: flex;
-  align-items: center;
 }
 
 .post-header-info .date {
@@ -2564,6 +2563,7 @@ body {
 }
 
 .category-title {
+  margin: 20px 0 60px;
   font-family: Roboto Slab;
   font-size: 40px;
   line-height: 50px;
@@ -2723,6 +2723,10 @@ body {
   margin-right: 79px;
 }
 
+.contacts-left .after-submit {
+  display: none;
+}
+
 .contacts-title {
   font-size: 18px;
   line-height: 30px;
@@ -2759,8 +2763,27 @@ body {
   width: 100%;
 }
 
-.contacts-form button {
+.contacts-form button, .contacts-form .button {
+  max-width: 140px;
   font-family: 'Lato Black', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  background: #4592ff;
+}
+
+.contacts-form .button {
+  color: #fff;
+  padding: 10px 50px 10px 20px;
+  border-radius: 20px;
+  background-image: url("../img/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.contacts-form .button:visited, .contacts-form .button:focus, .contacts-form .button:hover {
+  color: #fff;
 }
 
 .contacts-right {
@@ -2794,6 +2817,110 @@ body {
   padding: 80px 0;
 }
 
+.lesson-header-nav .breadcrumbs {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
 .lesson-header-title {
   font-family: Roboto Slab;
+}
+
+.taxonomy-title {
+  font-family: Roboto Slab;
+  font-size: 40px;
+  line-height: 50px;
+  color: #262D33;
+  margin-bottom: 60px;
+}
+
+.lesson-card {
+  margin-bottom: 50px;
+}
+
+.lesson-card a {
+  text-decoration: none;
+  color: #262D33;
+}
+
+.lesson-card a:visited {
+  color: #262D33;
+}
+
+.lesson-card-title {
+  font-family: 'Lato Black', sans-serif;
+  font-size: 25x;
+  line-height: 35px;
+}
+
+.lesson-card-info {
+  display: flex;
+  align-items: center;
+}
+
+.lesson-card-info .author-avatar {
+  margin-right: 10px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.lesson-card-info .author-info {
+  display: flex;
+  flex-wrap: wrap;
+  color: #939699;
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.lesson-card-info .author-name {
+  width: 100%;
+  margin-bottom: 8px;
+  color: #4B5157;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.lesson-card-date {
+  display: flex;
+  align-items: center;
+}
+
+.lesson-card-date .date {
+  opacity: 0.8;
+}
+
+.lesson-card-date .icon {
+  width: 15px;
+  height: 15px;
+  fill: #4B5157;
+  opacity: 0.4;
+  margin-right: 5px;
+}
+
+.breadcrumbs {
+  margin-top: 50px;
+}
+
+.breadcrumbs__link {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 900;
+  color: #262D33;
+}
+
+.breadcrumbs__link:visited {
+  color: inherit;
+}
+
+.breadcrumbs__current {
+  font-weight: 900;
+}
+
+.breadcrumbs__separator {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #BCBFC2;
+  margin: 0 10px;
 }
