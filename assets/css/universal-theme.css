@@ -1088,6 +1088,10 @@ body {
   color: #939699;
 }
 
+.widget-recent-posts .widget-title {
+  text-align: center;
+}
+
 .widget-category-articles {
   background-color: #F5F5F5;
 }

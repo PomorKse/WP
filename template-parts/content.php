@@ -37,8 +37,8 @@
                 'prev_text' => '<span class="post-nav-prev">
                 <svg class="icon prev-icon">
                   <use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#arrow"></use>
-                </svg>' . esc_html__( 'Назад', 'universal-example' ) . '</span>',
-                'next_text' => '<span class="post-nav-next">' . esc_html__( 'Вперед', 'universal-example' ) . 
+                </svg>' . esc_html__( 'Prev', 'universal' ) . '</span>',
+                'next_text' => '<span class="post-nav-next">' . esc_html__( 'Next', 'universal' ) . 
                 '<svg class="icon next-icon">
                   <use xlink:href="' . get_template_directory_uri() . '/assets/img/sprite.svg#arrow"></use>
                 </svg></span>',
@@ -114,7 +114,7 @@
           sprintf(
             wp_kses(
               /* translators: %s: Name of current post. Only visible to screen readers */
-              __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'universal-example' ),
+              __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'universal' ),
               array(
                 'span' => array(
                   'class' => array(),
@@ -127,7 +127,7 @@
 
         wp_link_pages(
           array(
-            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'universal-example' ),
+            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'universal' ),
             'after'  => '</div>',
           )
         );
@@ -136,10 +136,10 @@
     <!-- Подвал поста -->
     <footer class="post-footer">
       <?php
-        $tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal-example' ) );
+        $tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal' ) );
         if ( $tags_list ) {
           /* translators: 1: list of tags. */
-          printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+          printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         // Поделиться в соцсетях
         meks_ess_share();

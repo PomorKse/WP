@@ -64,7 +64,7 @@ function universal_theme_comment( $comment, $args, $depth ) {
             get_comment_time()
           ); ?>
         </a>
-        <?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+        <?php edit_comment_link( __( '(Edit)', 'universal' ), '  ', '' ); ?>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ if ( post_password_required() ) {
       ?>
       <div class="comments-header">
         <h2 class="comments-title">
-          <?php echo "Комментарии " . 
+          <?php echo _e('Comments ', 'universal') . 
           '<span class="comments-count">' . get_comments_number() . '</span>';
           ?>
         </h2><!-- .comments-title -->
@@ -136,7 +136,7 @@ if ( post_password_required() ) {
             <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#add-comment"></use>
           </svg>
 
-          Добавить комментарий
+          <?php _e('Add new comment', 'universal'); ?>
         </a>
       </div><!-- end .comments-header -->
 
@@ -152,7 +152,7 @@ if ( post_password_required() ) {
             'short_ping'  => true,
             'avatar_size' => 75,
             'callback'    => 'universal_theme_comment',
-            'login_text'  => 'Войдите, если желаете оставить комментарий'
+            'login_text'  => __( 'Log in if you wanna live a comment', 'universal' )
           )
         );
         ?>
@@ -164,7 +164,7 @@ if ( post_password_required() ) {
       // If comments are closed and there are comments, let's leave a little note, shall we?
       if ( ! comments_open() ) :
         ?>
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'universal-example' ); ?></p>
+        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'universal' ); ?></p>
         <?php
       endif;
 
@@ -172,7 +172,7 @@ if ( post_password_required() ) {
 
     comment_form([
       'comment_field' => '<div class="comment-form-comment">
-        <label for="comment" class="comment-form-label">' . _x( 'Что вы думаете на этот счет? ', 'noun' ) . '</label>
+        <label for="comment" class="comment-form-label">' . _x( 'What do you think about it? ', 'noun', 'universal' ) . '</label>
         <div class="comment-form-wrapper">' 
           . get_avatar( get_current_user_id(), 75) . '
           <div class="comment-form-textarea-wrapper">
@@ -186,7 +186,7 @@ if ( post_password_required() ) {
       'logged_in_as'         => '',
       'title_reply'          => '',
       'submit_button'         => '<button  class="comment-form-submit more" name="%1$s" type="submit" id="%2$s" class="%3$s">%4$s</button>',
-      'label_submit'         => __( 'Отправить' ),
+      'label_submit'         => __( 'Send', 'universal' ),
 
     ]);
     ?>

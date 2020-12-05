@@ -9,8 +9,8 @@ class Category_Articles_Widget extends WP_Widget {
     // __construct( $id_base, $name, $widget_options = array(), $control_options = array() )
     parent::__construct(
       'category_articles_widget', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: category_articles_widget
-      'Еще посты из этой категории',
-      array( 'description' => 'Статьи из этой категории', 'classname' => 'widget-category-articles', )
+      __( 'This category articles', 'universal' ),
+      array( 'description' => __( 'This category articles', 'universal' ), 'classname' => 'widget-category-articles', )
     );
 
     // скрипты/стили виджета, только если он активен
@@ -91,7 +91,7 @@ class Category_Articles_Widget extends WP_Widget {
 
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Количество постов:' ); ?></label> 
+      <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of posts:' ); ?></label> 
       <input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>">
     </p>
     <?php 
