@@ -137,3 +137,8 @@ class Recent_Posts_Widget extends WP_Widget {
 	}
 } 
 
+// регистрация Recent_Posts_Widget в WordPress
+function register_recent_posts_widget() {
+	register_widget( 'Recent_Posts_Widget' );
+}
+add_action( 'widgets_init', 'register_recent_posts_widget' );

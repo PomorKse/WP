@@ -29,7 +29,22 @@
                     <img src="<?php echo get_avatar_url($author_id)?>" class="avatar" alt="">
                     <div class="author-bio">
                       <span class="author-name"><?php the_author(); ?></span>
-                      <span class="author-rank">Должность</span>
+                      <span class="author-rank">
+                        <?php
+                          //Получаем список всех ролей WP(глобальная переменная)
+                          $roles = wp_roles()->roles;
+                          //узнаем текущую роль пользователя
+                          $current_role = get_the_author_meta( 'roles', $author_id )[0];
+                          //перебираем все роли WP
+                          foreach ($roles as $role => $value) {
+                            //если наша текущая роль совпадает с ролью из списка
+                            if ($role == $current_role) {
+                              //выводим название роли
+                              echo $value['name'];
+                            }
+                          }
+                        ?>
+                      </span>
                     </div>
                   </a>
                   <div class="post-text">
@@ -392,7 +407,7 @@ wp_reset_postdata(); // Сбрасываем $post
           </a>
           <p class="article-list-2-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 160, " ..."); ?></p>
           <div class="article-list-2-item-info">
-            <span class="date"><?php the_time( 'j F' ); ?></span>
+          <span class="date"><a href="<?php echo get_day_link(get_post_time('Y'), get_post_time('m'), get_post_time('j')); ?>"><?php the_time( 'j F' ); ?></a></span>
             <div class="comments">
               <svg class="icon comments-icon">
                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#comment"></use>
@@ -482,7 +497,22 @@ wp_reset_postdata(); // Сбрасываем $post
             <img src="<?php echo get_avatar_url($author_id)?>" class="author-avatar" alt="">
             <div class="author-bio">
               <span class="author-name"><?php the_author(); ?></span>
-              <span class="author-rank">Должность</span>
+              <span class="author-rank">
+                <?php
+                  //Получаем список всех ролей WP(глобальная переменная)
+                  $roles = wp_roles()->roles;
+                  //узнаем текущую роль пользователя
+                  $current_role = get_the_author_meta( 'roles', $author_id )[0];
+                  //перебираем все роли WP
+                  foreach ($roles as $role => $value) {
+                    //если наша текущая роль совпадает с ролью из списка
+                    if ($role == $current_role) {
+                      //выводим название роли
+                      echo $value['name'];
+                    }
+                  }
+                  ?>
+                </span>
             </div>
           </a>
 

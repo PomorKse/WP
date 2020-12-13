@@ -32,7 +32,7 @@
               </a>
               <p class="article-list-2-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 160, " ..."); ?></p>
               <div class="article-list-2-item-info">
-                <span class="date"><?php the_time( 'j F' ); ?></span>
+              <span class="date"><a href="<?php echo get_day_link(get_post_time('Y'), get_post_time('m'), get_post_time('j')); ?>"><?php the_time( 'j F' ); ?></a></span>
                 <div class="comments">
                   <svg class="icon comments-icon">
                     <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#comment"></use>

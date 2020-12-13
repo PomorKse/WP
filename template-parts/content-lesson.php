@@ -3,12 +3,6 @@
   <header class="entry-header <?php echo get_post_type(); ?>-header" style="background: linear-gradient(0deg, rgba(38, 45, 51, 0.75), rgba(38, 45, 51, 0.75))">
 
     <div class="container">
-      <div class="lesson-header-nav">
-            
-        <!--Подключаем хлебные крошки-->
-        <?php if ( function_exists( 'universal_breadcrumbs' ) ) universal_breadcrumbs(); ?>
-      </div><!-- end .lesson-header-nav -->
-
 
           <div class="video">
             <?php 
@@ -73,17 +67,6 @@
         );
       ?>
     </div><!-- end.lesson-content/содержимое поста -->
-    <!-- Подвал поста -->
-    <footer class="post-footer">
-      <?php
-        $tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal-example' ) );
-        if ( $tags_list ) {
-          /* translators: 1: list of tags. */
-          printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-        }
-        // Поделиться в соцсетях
-        meks_ess_share();
-      ?>
 
     </footer><!-- end.post-footer -->
   </div><!-- end.container -->

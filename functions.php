@@ -1,17 +1,35 @@
 <?php 
-require "inc/downloader-widget.php";
-require "inc/social-widget.php";
-require "inc/recent-posts-widget.php";
-require "inc/category-articles-widget.php";
-require "inc/breadcrumps.php";
+require get_template_directory() . "/inc/downloader-widget.php";
+require get_template_directory() . "/inc/social-widget.php";
+require get_template_directory() . "/inc/recent-posts-widget.php";
+require get_template_directory() . "/inc/category-articles-widget.php";
+require get_template_directory() . "/inc/breadcrumps.php";
 
 //Добавление расширенных возможностей
 if ( ! function_exists( 'universal_theme_setup' ) ) :
 
   function universal_theme_setup() {
 
+	// Удаляем роль при деактивации нашей темы
+		add_action( 'switch_theme', 'deactivate_universal_theme' );
+		function deactivate_universal_theme() {
+			remove_role( 'developer' );
+			remove_role( 'designer' );
+			remove_role( 'photographer' );
+		}
+
+		// Добавляем роль при активации нашей темы
+		add_action( 'after_switch_theme', 'activate_universal_theme' );
+		function activate_universal_theme() {
+			$author = get_role( 'author' );
+			add_role( 'developer', 'Разработчик', $author->capabilities );
+			add_role( 'designer', 'Дизайнер', $author->capabilities );
+			add_role( 'photographer', 'Фотограф', $author->capabilities );
+		}
+
 		//Подключение файлов перевода
 		load_theme_textdomain( 'universal', get_template_directory() . '/languages' );
+
     //Добавление тэга title
     add_theme_support( 'title-tag' );
 
@@ -193,24 +211,6 @@ endif;
   }
   add_action( 'widgets_init', 'universal_theme_widgets_init' );
 
-// регистрация Downloader_Widget в WordPress
-function register_downloader_widget() {
-	register_widget( 'Downloader_Widget' );
-}
-add_action( 'widgets_init', 'register_downloader_widget' );
-
-// регистрация Social_Widget в WordPress
-function register_social_widget() {
-	register_widget( 'Social_Widget' );
-}
-add_action( 'widgets_init', 'register_social_widget' );
-
-// регистрация Recent_Posts_Widget в WordPress
-function register_recent_posts_widget() {
-	register_widget( 'Recent_Posts_Widget' );
-}
-add_action( 'widgets_init', 'register_recent_posts_widget' );
-
   //Подключение стилей и скриптов
   function enqueue_universal_style() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
@@ -272,6 +272,14 @@ function ajax_form() {
 		$args['orderby'] = 'count';	
 		return $args;
 	}
+
+	//Добавляем фильтр к виджету со списком категорий (ловим событие widget_categories_args и запускаем свою функцию edit_widget_categories_args)
+	add_filter( 'widget_categories_args', 'edit_widget_categories_args' );
+	function edit_widget_categories_args($args){
+		$args['number'] = 7;	
+		return $args;
+	}
+	
 
   // отключаем создание миниатюр файлов для указанных размеров
 add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );

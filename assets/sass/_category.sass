@@ -5,72 +5,75 @@
     font-size: 40px
     line-height: 50px
     color: #262D33
-  .post
-    &-list
-      display: flex
-      flex-wrap: wrap
-      &-wrapper
-        padding-bottom: 30px
-    &-card
-      background: #ffffff
-      border-radius: 10px
-      width: 23%
-      margin-bottom: 30px
-      overflow: hidden
-      margin-right: 2%
-      position: relative
-      &-info
-        position: absolute
-        bottom: 25px
-      &-thumb
-        height: 180px
-        width: 100%
-        object-fit: cover
-      a
-        text-decoration: none
-      &-title
-        color: #262D33
-        font-family: Roboto Slab
-        font-size: 16px
-        line-height: 25px
-        margin: 0
-      &-excerpt 
-        color: #4B5157
-        margin-top: 5px
-        margin-bottom: 15px
-      &-text
-        padding: 15px 25px 70px 25px
-        .author
+.post
+  &-list
+    display: flex
+    flex-wrap: wrap
+    &-wrapper
+      padding-bottom: 30px
+  &-card
+    background: #ffffff
+    border-radius: 10px
+    width: 23%
+    margin-bottom: 30px
+    overflow: hidden
+    margin-right: 2%
+    position: relative
+    &-info
+      position: absolute
+      bottom: 25px
+    &-thumb
+      height: 180px
+      width: 100%
+      object-fit: cover
+    a
+      text-decoration: none
+      color: #939699
+      &:visited
+        color: inherit
+    &-title
+      color: #262D33
+      font-family: Roboto Slab
+      font-size: 16px
+      line-height: 25px
+      margin: 0
+    &-excerpt 
+      color: #4B5157
+      margin-top: 5px
+      margin-bottom: 15px
+    &-text
+      padding: 15px 25px 70px 25px
+      .author
+        display: flex
+        align-items: center
+        &-avatar
+          margin-right: 10px
+          width: 45px
+          height: 45px
+          border-radius: 50%
+        &-info
           display: flex
           align-items: center
-          &-avatar
-            margin-right: 10px
-            width: 45px
-            height: 45px
-            border-radius: 50%
-          &-info
+          flex-wrap: wrap
+          color: #939699
+          font-family: 'Lato Regular', sans-serif
+          font-size: 12px
+          line-height: 15px
+        &-name
+          width: 100%
+          color: #4B5157
+          font-size: 14px
+          line-height: 20px
+        .date, .comments, .likes
             display: flex
             align-items: center
-            flex-wrap: wrap
-            color: #939699
-            font-family: 'Lato Regular', sans-serif
-            font-size: 12px
-            line-height: 15px
-          &-name
-            width: 100%
-            color: #4B5157
-            font-size: 14px
-            line-height: 20px
-          .date, .comments, .likes
-              display: flex
-              align-items: center
-              margin-right: 7px
-              &-counter
-                margin-left: 5px
-          .icon
-            height: 15px
-            width: 15px
-            fill: #BCBFC2
+            margin-right: 7px
+            &-counter
+              margin-left: 5px
+        .icon
+          height: 15px
+          width: 15px
+          fill: #BCBFC2
 @media screen and ( max-width: 1200px )
   .container
     .post

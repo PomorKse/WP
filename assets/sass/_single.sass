@@ -80,6 +80,11 @@
       display: flex
       .date
         opacity: 0.8
+        a
+          text-decoration: none
+          color: inherit
+          &:visited
+            color: inherit
       .likes
         display: flex
         align-items: center
@@ -204,6 +209,7 @@
           line-height: 30px
           color: #262D33
           margin-bottom: 15px
+          z-index: 1
           position: relative
           &::before
             position: absolute

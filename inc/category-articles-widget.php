@@ -48,7 +48,7 @@ class Category_Articles_Widget extends WP_Widget {
       foreach($posts as $post) :
         ?>
           <div class="widget-category-articles-item-wrapper">
-            <a href="#" class="widget-category-articles-link">
+            <a href="<?php echo get_the_permalink(); ?>" class="widget-category-articles-link">
               <img src="<?php if( has_post_thumbnail() ) {
                                 echo get_the_post_thumbnail_url(null, 'thumbnail'); 
                               }

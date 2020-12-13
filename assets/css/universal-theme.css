@@ -604,7 +604,7 @@ body .right .post-title {
   position: absolute;
   right: 0;
   top: 0;
-  height: 82%;
+  height: 86%;
   width: 45%;
   object-fit: cover;
 }
@@ -1318,6 +1318,15 @@ body {
   color: #939699;
 }
 
+.article-list-2-item-info a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-list-2-item-info a:visited {
+  color: inherit;
+}
+
 .article-list-2-item-info .date, .article-list-2-item-info .comments, .article-list-2-item-info .likes {
   opacity: 0.4;
   display: flex;
@@ -1934,6 +1943,15 @@ body {
   opacity: 0.8;
 }
 
+.post-header-info .date a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-header-info .date a:visited {
+  color: inherit;
+}
+
 .post-header-info .likes {
   display: flex;
   align-items: center;
@@ -2107,6 +2125,7 @@ body {
   line-height: 30px;
   color: #262D33;
   margin-bottom: 15px;
+  z-index: 1;
   position: relative;
 }
 
@@ -2574,16 +2593,16 @@ body {
   color: #262D33;
 }
 
-.category .post-list {
+.post-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.category .post-list-wrapper {
+.post-list-wrapper {
   padding-bottom: 30px;
 }
 
-.category .post-card {
+.post-card {
   background: #ffffff;
   border-radius: 10px;
   width: 23%;
@@ -2593,22 +2612,27 @@ body {
   position: relative;
 }
 
-.category .post-card-info {
+.post-card-info {
   position: absolute;
   bottom: 25px;
 }
 
-.category .post-card-thumb {
+.post-card-thumb {
   height: 180px;
   width: 100%;
   object-fit: cover;
 }
 
-.category .post-card a {
+.post-card a {
   text-decoration: none;
+  color: #939699;
 }
 
-.category .post-card-title {
+.post-card a:visited {
+  color: inherit;
+}
+
+.post-card-title {
   color: #262D33;
   font-family: Roboto Slab;
   font-size: 16px;
@@ -2616,29 +2640,29 @@ body {
   margin: 0;
 }
 
-.category .post-card-excerpt {
+.post-card-excerpt {
   color: #4B5157;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-.category .post-card-text {
+.post-card-text {
   padding: 15px 25px 70px 25px;
 }
 
-.category .post-card-text .author {
+.post-card-text .author {
   display: flex;
   align-items: center;
 }
 
-.category .post-card-text .author-avatar {
+.post-card-text .author-avatar {
   margin-right: 10px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
 }
 
-.category .post-card-text .author-info {
+.post-card-text .author-info {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -2648,24 +2672,24 @@ body {
   line-height: 15px;
 }
 
-.category .post-card-text .author-name {
+.post-card-text .author-name {
   width: 100%;
   color: #4B5157;
   font-size: 14px;
   line-height: 20px;
 }
 
-.category .post-card-text .author .date, .category .post-card-text .author .comments, .category .post-card-text .author .likes {
+.post-card-text .author .date, .post-card-text .author .comments, .post-card-text .author .likes {
   display: flex;
   align-items: center;
   margin-right: 7px;
 }
 
-.category .post-card-text .author .date-counter, .category .post-card-text .author .comments-counter, .category .post-card-text .author .likes-counter {
+.post-card-text .author .date-counter, .post-card-text .author .comments-counter, .post-card-text .author .likes-counter {
   margin-left: 5px;
 }
 
-.category .post-card-text .author .icon {
+.post-card-text .author .icon {
   height: 15px;
   width: 15px;
   fill: #BCBFC2;
@@ -2819,6 +2843,15 @@ body {
 .lesson-header {
   color: #ffffff;
   padding: 80px 0;
+}
+
+.lesson-header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.lesson-header a:visited {
+  color: #ffffff;
 }
 
 .lesson-header-nav .breadcrumbs {

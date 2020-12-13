@@ -1,6 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <!--шапка поста-->
-  <header class="entry-header <?php echo get_post_type(); ?>-header" style="background: linear-gradient(0deg, rgba(38, 45, 51, 0.75), rgba(38, 45, 51, 0.75)), url(
+  <header class="entry-header <?php echo get_post_type(); ?>-header" style="background-image: linear-gradient(0deg, rgba(38, 45, 51, 0.75), rgba(38, 45, 51, 0.75)), url(
     <?php
       if( has_post_thumbnail() ) {
         echo get_the_post_thumbnail_url(); 
@@ -8,7 +8,7 @@
         else {
           echo get_template_directory_uri() . '/assets/img/img-default.png';
         }
-    ?>) no-repeat center center;">
+    ?>); background-size: cover; background-position: center">
 
     <div class="container">
         <div class="post-header-wrapper">
@@ -69,7 +69,7 @@
             <svg class="icon clock-icon">
               <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#clock"></use>
             </svg>
-            <span class="date"><?php the_time( 'j F, H:i' ); ?></span>
+            <span class="date"><a href="<?php echo get_day_link(get_post_time('Y'), get_post_time('m'), get_post_time('j')); ?>"><?php the_time( 'j F, H:i' ); ?></a></span>
             <div class="likes">
               <svg class="icon likes-icon">
                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/img/sprite.svg#likes"></use>
@@ -89,7 +89,22 @@
               <?php $author_id = get_the_author_meta('ID'); ?>
                   <img src="<?php echo get_avatar_url($author_id)?>" class="post-author-avatar" alt="">
                   <span class="post-author-name"><?php the_author(); ?></span>
-                  <span class="post-author-rank">Должность</span>
+                  <span class="post-author-rank">
+                    <?php
+                      //Получаем список всех ролей WP(глобальная переменная)
+                      $roles = wp_roles()->roles;
+                      //узнаем текущую роль пользователя
+                      $current_role = get_the_author_meta( 'roles', $author_id )[0];
+                      //перебираем все роли WP
+                      foreach ($roles as $role => $value) {
+                        //если наша текущая роль совпадает с ролью из списка
+                        if ($role == $current_role) {
+                          //выводим название роли
+                          echo $value['name'];
+                        }
+                      }
+                    ?>
+                  </span>
                   <span class="post-author-posts">
                     <?php plural_form(count_user_posts($author_id),
                     //варианты написания для количества 1, 2 и 5

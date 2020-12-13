@@ -115,3 +115,9 @@ class Downloader_Widget extends WP_Widget {
 	}
 } 
 
+// регистрация Downloader_Widget в WordPress
+function register_downloader_widget() {
+	register_widget( 'Downloader_Widget' );
+}
+add_action( 'widgets_init', 'register_downloader_widget' );
+

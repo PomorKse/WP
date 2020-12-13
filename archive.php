@@ -1,9 +1,18 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package universal-example
+ */
+get_header(); ?>
 
 <div class="container">
-  <?php if ( function_exists( 'universal_breadcrumbs' ) ) universal_breadcrumbs(); ?>
+	<?php if ( function_exists( 'universal_breadcrumbs' ) ) universal_breadcrumbs(); ?>
+
   <h1 class="category-title">
-    <?php echo single_cat_title() ?>
+    <?php wp_title('') ?>
   </h1>
   <div class="post-list-wrapper">
     <div class="post-list">
@@ -57,7 +66,7 @@
     </div><!-- end .post-list -->
     <?php the_posts_pagination() ?>
   </div><!-- end .post-list-wrapper -->
-
 </div><!-- end .container -->
 
 <?php get_footer(); ?>
+
